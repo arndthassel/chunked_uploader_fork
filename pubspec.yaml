@@ -8,6 +8,6 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
-  dio: ">=4.0.0 <5.2.1"
+  dio: ^5.2.1
   universal_io: ^2.2.2
   async: ^2.11.0
