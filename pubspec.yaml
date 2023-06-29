@@ -1,13 +1,13 @@
 name: chunked_uploader
 description: An easy-to-use package to upload files in chunks using Dio for mobile, desktop and web.
-version: 1.0.0
+version: 2.0.0
 homepage: https://github.com/Taskulu/chunked_uploader
 repository: https://github.com/Taskulu/chunked_uploader
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ^3.0.0
 
 dependencies:
-  dio: ">=4.0.0 <5.0.0"
-  universal_io: ^2.0.4
-  async: ^2.9.0
+  dio: ">=4.0.0 <5.2.1"
+  universal_io: ^2.2.2
+  async: ^2.11.0

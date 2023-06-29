@@ -1,3 +1,6 @@
+## [2.0.0]
+
+
 ## [1.0.0]
 
 * **Breaking change**. Add new `upload` method to take file data stream and change
