@@ -21,7 +21,7 @@ class ChunkedUploader {
     int? maxChunkSize,
     Function(double)? onUploadProgress,
     ChunkHeadersCallback? headersCallback,
-    String method = 'POST',
+    String method = 'PUT',
     String fileKey = 'file',
   }) =>
       _Uploader(
@@ -48,7 +48,7 @@ class ChunkedUploader {
     int? maxChunkSize,
     Function(double)? onUploadProgress,
     ChunkHeadersCallback? headersCallback,
-    String method = 'POST',
+    String method = 'PUT',
     String fileKey = 'file',
   }) =>
       _Uploader.fromFilePath(
