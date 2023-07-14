@@ -131,7 +131,7 @@ class _Uploader {
           cancelToken: cancelToken,
           options: Options(
             method: method,
-            headers: _headersCallback(start, end, fileSize),
+            headers: _headersCallback(start, end),
           ),
           onSendProgress: (current, total) =>
               _updateProgress(i, current, total),
@@ -166,9 +166,8 @@ class _Uploader {
 }
 
 typedef ChunkHeadersCallback = Map<String, dynamic> Function(
-    int start, int end, int fileSize);
+    int start, int end);
 
 // Based on RFC 7233 (https://tools.ietf.org/html/rfc7233#section-2)
 final ChunkHeadersCallback _defaultHeadersCallback =
-    (int start, int end, int fileSize) =>
-        {'Content-Range': 'bytes $start-${end - 1}/$fileSize'};
+    (int start, int end) => {'Content-Length': '${end - start}'};
