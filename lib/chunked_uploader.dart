@@ -170,4 +170,4 @@ typedef ChunkHeadersCallback = Map<String, dynamic> Function(
 
 // Based on RFC 7233 (https://tools.ietf.org/html/rfc7233#section-2)
 final ChunkHeadersCallback _defaultHeadersCallback =
-    (int start, int end) => {'Content-Length': '${end - start}'};
+    (int start, int end) => {'x-ms-blob-content-length': '${end - start}'};
