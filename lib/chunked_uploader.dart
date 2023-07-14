@@ -169,5 +169,7 @@ typedef ChunkHeadersCallback = Map<String, dynamic> Function(
     int start, int end);
 
 // Based on RFC 7233 (https://tools.ietf.org/html/rfc7233#section-2)
-final ChunkHeadersCallback _defaultHeadersCallback =
-    (int start, int end) => {'x-ms-blob-condition-append-position': '$start'};
+final ChunkHeadersCallback _defaultHeadersCallback = (int start, int end) => {
+      'x-ms-blob-condition-append-position': start,
+      'content-length': end - start
+    };
