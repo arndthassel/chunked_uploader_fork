@@ -131,7 +131,7 @@ class _Uploader {
           cancelToken: cancelToken,
           options: Options(
             method: method,
-            headers: _headersCallback(start, end),
+            headers: _headersCallback(start, end, fileSize),
           ),
           onSendProgress: (current, total) =>
               _updateProgress(i, current, total),
@@ -166,10 +166,11 @@ class _Uploader {
 }
 
 typedef ChunkHeadersCallback = Map<String, dynamic> Function(
-    int start, int end);
+    int start, int end, int fileSize);
 
 /// Headers based on Azure requirements.
-final ChunkHeadersCallback _defaultHeadersCallback = (int start, int end) => {
-      'x-ms-blob-condition-append-position': start,
-      'content-length': end - start
-    };
+final ChunkHeadersCallback _defaultHeadersCallback =
+    (int start, int end, int fileSize) => {
+          'x-ms-blob-condition-append-position': '$start',
+          'content-length': '$end-$start',
+        };
