@@ -172,5 +172,5 @@ typedef ChunkHeadersCallback = Map<String, dynamic> Function(
 final ChunkHeadersCallback _defaultHeadersCallback =
     (int start, int end, int fileSize) => {
           'x-ms-blob-condition-append-position': '$start',
-          'content-length': '$end-$start',
+          'content-length': end - start,
         };
