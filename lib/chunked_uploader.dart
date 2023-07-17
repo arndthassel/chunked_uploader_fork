@@ -173,6 +173,6 @@ typedef ChunkHeadersCallback = Map<String, String> Function(
 final ChunkHeadersCallback _defaultHeadersCallback =
     (int start, int end, int fileSize) => {
           'x-ms-blob-condition-append-position': '$start',
-          'content-length': (end - start).toString(),
+/*           'content-length': (end - start).toString(), */
           'x-ms-blob-type': 'AppendBlob',
         };
