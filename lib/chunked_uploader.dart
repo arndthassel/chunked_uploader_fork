@@ -129,7 +129,7 @@ class _Uploader {
           path,
           data: formData,
           cancelToken: cancelToken,
-          queryParameters: <String, String>{'comp': 'AppendBlock'},
+          queryParameters: <String, dynamic>{'comp': 'AppendBlock'},
           options: Options(
             method: method,
             headers: _headersCallback(start, end, fileSize),
