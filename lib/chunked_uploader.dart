@@ -129,6 +129,7 @@ class _Uploader {
           path,
           data: formData,
           cancelToken: cancelToken,
+          queryParameters: <String, String>{'comp': 'AppendBlock'},
           options: Options(
             method: method,
             headers: _headersCallback(start, end, fileSize),
@@ -165,12 +166,13 @@ class _Uploader {
   int get _chunksCount => (fileSize / _maxChunkSize).ceil();
 }
 
-typedef ChunkHeadersCallback = Map<String, dynamic> Function(
+typedef ChunkHeadersCallback = Map<String, String> Function(
     int start, int end, int fileSize);
 
 /// Headers based on Azure requirements.
 final ChunkHeadersCallback _defaultHeadersCallback =
     (int start, int end, int fileSize) => {
           'x-ms-blob-condition-append-position': '$start',
-          'content-length': end - start,
+          'content-length': (end - start).toString(),
+          'x-ms-blob-type': 'AppendBlob',
         };
